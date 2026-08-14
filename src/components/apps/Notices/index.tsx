@@ -182,9 +182,9 @@ export function Notices() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <span className={`px-3 py-1 rounded-full text-[12px] font-bold uppercase tracking-wider ${
-                  selectedNotice.priority === 'high' ? 'bg-red-50 text-red-600' : 
-                  selectedNotice.priority === 'medium' ? 'bg-amber-50 text-amber-600' : 
-                  'bg-blue-500/10 text-blue-600'
+                  selectedNotice.priority === 'high' ? 'bg-red-500/10 text-red-400' : 
+                  selectedNotice.priority === 'medium' ? 'bg-amber-500/10 text-amber-400' : 
+                  'bg-blue-500/10 text-blue-400'
                 }`}>
                   {selectedNotice.priority} Priority
                 </span>
@@ -224,7 +224,7 @@ export function Notices() {
               </div>
 
               <div className="prose prose-blue max-w-none mb-12">
-                <p className="text-[16px] text-[#333336] leading-relaxed whitespace-pre-line">
+                <p className="text-[16px] text-white/80 leading-relaxed whitespace-pre-line">
                   {selectedNotice.content}
                 </p>
               </div>
@@ -235,7 +235,7 @@ export function Notices() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {selectedNotice.attachments.map((file: any, idx: number) => (
                       <div key={idx} className="bg-[#1e1e1e] rounded-[16px] p-4 border border-white/10 flex items-center gap-4 hover:border-blue-300 hover:bg-blue-500/10/50 transition-colors cursor-pointer group">
-                        <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center text-red-600">
+                        <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center text-red-400">
                           <FileText size={24} />
                         </div>
                         <div className="flex-1 min-w-0">

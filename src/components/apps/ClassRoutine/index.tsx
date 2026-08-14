@@ -10,45 +10,45 @@ const routineData = [
     day: "Sunday",
     date: "10 Aug",
     classes: [
-      { id: 1, course: "CSE 320", type: "Theory", title: "Operating Systems", time: "08:00 AM - 08:50 AM", room: "Room 401", color: "bg-blue-500", lightColor: "bg-blue-500/10", textColor: "text-blue-700" },
-      { id: 2, course: "CSE 322", type: "Theory", title: "Computer Architecture", time: "08:50 AM - 09:40 AM", room: "Room 401", color: "bg-purple-500", lightColor: "bg-purple-50", textColor: "text-purple-700" },
-      { id: 3, course: "MATH 301", type: "Theory", title: "Engineering Mathematics", time: "10:00 AM - 10:50 AM", room: "Room 305", color: "bg-emerald-500", lightColor: "bg-emerald-50", textColor: "text-emerald-700" },
-      { id: 4, course: "CSE 324", type: "Lab", title: "System Analysis Lab", time: "11:40 AM - 02:10 PM", room: "Software Lab", color: "bg-amber-500", lightColor: "bg-amber-50", textColor: "text-amber-700" },
+      { id: 1, course: "CSE 320", type: "Theory", title: "Operating Systems", time: "08:00 AM - 08:50 AM", room: "Room 401", color: "bg-blue-500", lightColor: "bg-blue-500/10", textColor: "text-blue-400" },
+      { id: 2, course: "CSE 322", type: "Theory", title: "Computer Architecture", time: "08:50 AM - 09:40 AM", room: "Room 401", color: "bg-purple-500", lightColor: "bg-purple-500/10", textColor: "text-purple-400" },
+      { id: 3, course: "MATH 301", type: "Theory", title: "Engineering Mathematics", time: "10:00 AM - 10:50 AM", room: "Room 305", color: "bg-emerald-500", lightColor: "bg-emerald-500/10", textColor: "text-emerald-400" },
+      { id: 4, course: "CSE 324", type: "Lab", title: "System Analysis Lab", time: "11:40 AM - 02:10 PM", room: "Software Lab", color: "bg-amber-500", lightColor: "bg-amber-500/10", textColor: "text-amber-400" },
     ]
   },
   {
     day: "Monday",
     date: "11 Aug",
     classes: [
-      { id: 5, course: "HUM 303", type: "Theory", title: "Economics", time: "08:00 AM - 08:50 AM", room: "Room 402", color: "bg-rose-500", lightColor: "bg-rose-50", textColor: "text-rose-700" },
-      { id: 6, course: "CSE 326", type: "Theory", title: "Database Systems", time: "08:50 AM - 09:40 AM", room: "Room 401", color: "bg-indigo-500", lightColor: "bg-indigo-50", textColor: "text-indigo-700" },
-      { id: 7, course: "CSE 320", type: "Theory", title: "Operating Systems", time: "10:00 AM - 10:50 AM", room: "Room 401", color: "bg-blue-500", lightColor: "bg-blue-500/10", textColor: "text-blue-700" },
+      { id: 5, course: "HUM 303", type: "Theory", title: "Economics", time: "08:00 AM - 08:50 AM", room: "Room 402", color: "bg-rose-500", lightColor: "bg-rose-500/10", textColor: "text-rose-400" },
+      { id: 6, course: "CSE 326", type: "Theory", title: "Database Systems", time: "08:50 AM - 09:40 AM", room: "Room 401", color: "bg-indigo-500", lightColor: "bg-indigo-500/10", textColor: "text-indigo-400" },
+      { id: 7, course: "CSE 320", type: "Theory", title: "Operating Systems", time: "10:00 AM - 10:50 AM", room: "Room 401", color: "bg-blue-500", lightColor: "bg-blue-500/10", textColor: "text-blue-400" },
     ]
   },
   {
     day: "Tuesday",
     date: "12 Aug",
     classes: [
-      { id: 8, course: "CSE 326", type: "Lab", title: "Database Systems Lab", time: "08:00 AM - 10:30 AM", room: "Network Lab", color: "bg-indigo-500", lightColor: "bg-indigo-50", textColor: "text-indigo-700" },
-      { id: 9, course: "CSE 322", type: "Theory", title: "Computer Architecture", time: "10:50 AM - 11:40 AM", room: "Room 401", color: "bg-purple-500", lightColor: "bg-purple-50", textColor: "text-purple-700" },
+      { id: 8, course: "CSE 326", type: "Lab", title: "Database Systems Lab", time: "08:00 AM - 10:30 AM", room: "Network Lab", color: "bg-indigo-500", lightColor: "bg-indigo-500/10", textColor: "text-indigo-400" },
+      { id: 9, course: "CSE 322", type: "Theory", title: "Computer Architecture", time: "10:50 AM - 11:40 AM", room: "Room 401", color: "bg-purple-500", lightColor: "bg-purple-500/10", textColor: "text-purple-400" },
     ]
   },
   {
     day: "Wednesday",
     date: "13 Aug",
     classes: [
-      { id: 10, course: "MATH 301", type: "Theory", title: "Engineering Mathematics", time: "08:00 AM - 08:50 AM", room: "Room 305", color: "bg-emerald-500", lightColor: "bg-emerald-50", textColor: "text-emerald-700" },
-      { id: 11, course: "CSE 320", type: "Lab", title: "Operating Systems Lab", time: "08:50 AM - 11:20 AM", room: "Hardware Lab", color: "bg-blue-500", lightColor: "bg-blue-500/10", textColor: "text-blue-700" },
-      { id: 12, course: "HUM 303", type: "Theory", title: "Economics", time: "11:40 AM - 12:30 PM", room: "Room 402", color: "bg-rose-500", lightColor: "bg-rose-50", textColor: "text-rose-700" },
+      { id: 10, course: "MATH 301", type: "Theory", title: "Engineering Mathematics", time: "08:00 AM - 08:50 AM", room: "Room 305", color: "bg-emerald-500", lightColor: "bg-emerald-500/10", textColor: "text-emerald-400" },
+      { id: 11, course: "CSE 320", type: "Lab", title: "Operating Systems Lab", time: "08:50 AM - 11:20 AM", room: "Hardware Lab", color: "bg-blue-500", lightColor: "bg-blue-500/10", textColor: "text-blue-400" },
+      { id: 12, course: "HUM 303", type: "Theory", title: "Economics", time: "11:40 AM - 12:30 PM", room: "Room 402", color: "bg-rose-500", lightColor: "bg-rose-500/10", textColor: "text-rose-400" },
     ]
   },
   {
     day: "Thursday",
     date: "14 Aug",
     classes: [
-      { id: 13, course: "CSE 324", type: "Theory", title: "System Analysis", time: "08:50 AM - 09:40 AM", room: "Room 401", color: "bg-amber-500", lightColor: "bg-amber-50", textColor: "text-amber-700" },
-      { id: 14, course: "CSE 326", type: "Theory", title: "Database Systems", time: "10:00 AM - 10:50 AM", room: "Room 401", color: "bg-indigo-500", lightColor: "bg-indigo-50", textColor: "text-indigo-700" },
-      { id: 15, course: "CSE 322", type: "Lab", title: "Computer Architecture Lab", time: "11:40 AM - 02:10 PM", room: "Hardware Lab", color: "bg-purple-500", lightColor: "bg-purple-50", textColor: "text-purple-700" },
+      { id: 13, course: "CSE 324", type: "Theory", title: "System Analysis", time: "08:50 AM - 09:40 AM", room: "Room 401", color: "bg-amber-500", lightColor: "bg-amber-500/10", textColor: "text-amber-400" },
+      { id: 14, course: "CSE 326", type: "Theory", title: "Database Systems", time: "10:00 AM - 10:50 AM", room: "Room 401", color: "bg-indigo-500", lightColor: "bg-indigo-500/10", textColor: "text-indigo-400" },
+      { id: 15, course: "CSE 322", type: "Lab", title: "Computer Architecture Lab", time: "11:40 AM - 02:10 PM", room: "Hardware Lab", color: "bg-purple-500", lightColor: "bg-purple-500/10", textColor: "text-purple-400" },
     ]
   }
 ];
