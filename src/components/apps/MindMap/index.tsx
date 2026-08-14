@@ -427,7 +427,7 @@ function MindMapCanvas({ courseId }: { courseId: string }) {
             minZoom={0.2}
             maxZoom={1.5}
           >
-            <Background color="#000000" gap={24} size={1} opacity={0.05} />
+            <Background color="rgba(0,0,0,0.05)" gap={24} size={1} />
             <Controls showInteractive={false} className="bg-white/80 backdrop-blur-md shadow-sm border border-black/5 rounded-lg overflow-hidden" />
           </ReactFlow>
         ) : (

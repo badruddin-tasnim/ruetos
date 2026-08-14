@@ -7,6 +7,7 @@ import { AIExamPrep } from "../apps/AIExamPrep";
 import { MindMap } from "../apps/MindMap";
 import { ClassRoutine } from "../apps/ClassRoutine";
 import { Notices } from "../apps/Notices";
+import { StudyBuddy } from "../apps/StudyBuddy";
 
 export function WindowManager() {
   const { windows } = useOSStore();
