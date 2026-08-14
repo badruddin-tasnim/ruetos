@@ -37,14 +37,14 @@ export function Window({ windowState, children }: WindowProps) {
       transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
       onPointerDown={() => focusWindow(windowState.id)}
       style={{ zIndex: windowState.zIndex }}
-      className="absolute inset-0 flex flex-col bg-[#f5f5f5] overflow-hidden"
+      className="absolute inset-0 flex flex-col bg-[#1c1c1e] overflow-hidden"
     >
       {/* macOS-style title bar */}
       <div
-        className={`h-[38px] shrink-0 flex items-center px-4 relative border-b border-black/10 transition-colors ${
+        className={`h-[38px] shrink-0 flex items-center px-4 relative border-b border-white/5 transition-colors ${
           isFocused
-            ? "bg-[rgba(235,235,235,0.92)] backdrop-blur-xl"
-            : "bg-[rgba(245,245,245,0.85)] backdrop-blur-xl"
+            ? "bg-[rgba(45,45,45,0.92)] backdrop-blur-xl"
+            : "bg-[rgba(35,35,35,0.85)] backdrop-blur-xl"
         }`}
       >
         {/* Traffic lights */}
@@ -68,13 +68,13 @@ export function Window({ windowState, children }: WindowProps) {
         </div>
 
         {/* Window title centered */}
-        <div className="flex-1 text-center text-[13px] font-semibold text-[#1a1a1a] tracking-tight select-none">
+        <div className="flex-1 text-center text-[13px] font-semibold text-white/90 tracking-tight select-none">
           {windowState.title}
         </div>
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-auto relative bg-[#f5f5f7]">
+      <div className="flex-1 overflow-auto relative bg-[#1c1c1e]">
         {children}
       </div>
     </motion.div>

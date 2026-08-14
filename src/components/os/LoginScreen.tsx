@@ -32,37 +32,37 @@ export function LoginScreen() {
         }}
       />
 
-      <div className="w-[420px] bg-cloud-white rounded-xl shadow-raised border border-border-light p-12 flex flex-col items-center relative z-10">
+      <div className="w-[420px] bg-[#1c1c1e] rounded-xl shadow-raised border border-white/10 p-12 flex flex-col items-center relative z-10">
         <div className="w-16 h-16 rounded-full bg-signal-blue flex items-center justify-center mb-6">
-          <span className="text-cloud-white font-bold text-2xl">R</span>
+          <span className="text-white font-bold text-2xl">R</span>
         </div>
         
-        <h1 className="text-display-xl text-graphite mb-8 tracking-tight">
+        <h1 className="text-display-xl text-white/90 mb-8 tracking-tight">
           RUET OS
         </h1>
 
         <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
           <div className="flex flex-col gap-1">
-            <label className="text-caption text-graphite">Roll Number</label>
+            <label className="text-caption text-white/70">Roll Number</label>
             <input 
               type="text"
               required
               value={roll}
               onChange={(e) => setRoll(e.target.value)}
               placeholder="e.g. 1903001"
-              className="w-full h-[44px] rounded-md bg-cloud-white border border-border-light px-3 text-mono-md text-graphite placeholder:text-[#9AA3B2] focus:outline-none focus:border-[1.5px] focus:border-signal-blue focus:ring-[3px] focus:ring-focus-ring transition-shadow"
+              className="w-full h-[44px] rounded-md bg-[#252525] border border-white/10 px-3 text-mono-md text-white placeholder:text-[#9AA3B2] focus:outline-none focus:border-[1.5px] focus:border-signal-blue focus:ring-[3px] focus:ring-focus-ring/20 transition-shadow"
             />
           </div>
 
           <div className="flex flex-col gap-1">
-            <label className="text-caption text-graphite">Registration Number</label>
+            <label className="text-caption text-white/70">Registration Number</label>
             <input 
               type="password"
               required
               value={reg}
               onChange={(e) => setReg(e.target.value)}
               placeholder="••••••••"
-              className="w-full h-[44px] rounded-md bg-cloud-white border border-border-light px-3 text-mono-md text-graphite placeholder:text-[#9AA3B2] focus:outline-none focus:border-[1.5px] focus:border-signal-blue focus:ring-[3px] focus:ring-focus-ring transition-shadow"
+              className="w-full h-[44px] rounded-md bg-[#252525] border border-white/10 px-3 text-mono-md text-white placeholder:text-[#9AA3B2] focus:outline-none focus:border-[1.5px] focus:border-signal-blue focus:ring-[3px] focus:ring-focus-ring/20 transition-shadow"
             />
           </div>
 

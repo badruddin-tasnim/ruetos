@@ -78,12 +78,12 @@ export function Notices() {
   });
 
   return (
-    <div className="flex h-full w-full bg-[#f5f5f7]">
+    <div className="flex h-full w-full bg-[#1c1c1e]">
       
       {/* Sidebar - Notice List */}
-      <div className="w-[340px] flex-shrink-0 border-r border-black/[0.06] bg-[#f5f5f7]/80 backdrop-blur-xl flex flex-col h-full relative z-10">
-        <div className="h-[60px] flex items-center px-5 shrink-0 sticky top-0 bg-[#f5f5f7]/95 backdrop-blur-md pt-2 border-b border-black/[0.04] z-20">
-          <div className="flex items-center gap-2.5 text-[#1d1d1f] font-semibold text-[16px] tracking-tight w-full">
+      <div className="w-[340px] flex-shrink-0 border-r border-black/[0.06] bg-[#1c1c1e]/80 backdrop-blur-xl flex flex-col h-full relative z-10">
+        <div className="h-[60px] flex items-center px-5 shrink-0 sticky top-0 bg-[#1c1c1e]/95 backdrop-blur-md pt-2 border-b border-white/5 z-20">
+          <div className="flex items-center gap-2.5 text-white/90 font-semibold text-[16px] tracking-tight w-full">
             <div className="w-7 h-7 rounded-md bg-rose-500 flex items-center justify-center text-white shadow-sm shrink-0">
               <Bell size={14} />
             </div>
@@ -93,13 +93,13 @@ export function Notices() {
 
         <div className="px-5 py-4 flex flex-col gap-3 shrink-0">
           <div className="relative">
-            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500" />
             <input 
               type="text" 
               placeholder="Search notices..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-8 pr-4 py-2 rounded-[10px] bg-white border border-black/[0.05] shadow-[0_1px_2px_rgba(0,0,0,0.02)] text-[13px] focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-400"
+              className="w-full pl-8 pr-4 py-2 rounded-[10px] bg-[#252525] border border-black/[0.05] shadow-[0_1px_2px_rgba(0,0,0,0.02)] text-[13px] focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-500"
             />
           </div>
 
@@ -111,7 +111,7 @@ export function Notices() {
                 className={`px-3 py-1.5 rounded-full text-[12px] font-medium whitespace-nowrap transition-all border ${
                   activeCategory === cat 
                   ? 'bg-[#1d1d1f] text-white border-[#1d1d1f] shadow-sm' 
-                  : 'bg-white text-[#515154] border-gray-200 hover:bg-gray-50'
+                  : 'bg-[#252525] text-white/70 border-white/10 hover:bg-[#1e1e1e]'
                 }`}
               >
                 {cat}
@@ -129,31 +129,31 @@ export function Notices() {
                 className={`w-full text-left p-3.5 rounded-[12px] transition-all relative overflow-hidden group ${
                   selectedNotice?.id === notice.id 
                   ? 'bg-blue-500 text-white shadow-md' 
-                  : 'bg-transparent hover:bg-black/[0.03] text-[#1d1d1f]'
+                  : 'bg-transparent hover:bg-black/[0.03] text-white/90'
                 }`}
               >
                 <div className="flex items-start justify-between mb-1.5 gap-2">
-                  <span className={`text-[11px] font-bold tracking-wider uppercase ${selectedNotice?.id === notice.id ? 'text-blue-100' : 'text-[#86868b]'}`}>
+                  <span className={`text-[11px] font-bold tracking-wider uppercase ${selectedNotice?.id === notice.id ? 'text-blue-100' : 'text-white/60'}`}>
                     {notice.category}
                   </span>
                   <div className="flex gap-1.5 items-center">
                     {notice.isPinned && <Pin size={12} className={selectedNotice?.id === notice.id ? 'text-blue-100' : 'text-blue-500'} />}
-                    <span className={`text-[11px] font-medium ${selectedNotice?.id === notice.id ? 'text-blue-100' : 'text-gray-400'}`}>
+                    <span className={`text-[11px] font-medium ${selectedNotice?.id === notice.id ? 'text-blue-100' : 'text-gray-500'}`}>
                       {notice.date}
                     </span>
                   </div>
                 </div>
                 
-                <h4 className={`text-[14px] font-semibold leading-tight mb-2 ${selectedNotice?.id === notice.id ? 'text-white' : 'text-[#1d1d1f]'}`}>
+                <h4 className={`text-[14px] font-semibold leading-tight mb-2 ${selectedNotice?.id === notice.id ? 'text-white' : 'text-white/90'}`}>
                   {notice.title}
                 </h4>
                 
                 <div className="flex items-center justify-between">
-                  <span className={`text-[12px] font-medium line-clamp-1 ${selectedNotice?.id === notice.id ? 'text-blue-100' : 'text-[#515154]'}`}>
+                  <span className={`text-[12px] font-medium line-clamp-1 ${selectedNotice?.id === notice.id ? 'text-blue-100' : 'text-white/70'}`}>
                     {notice.issuer}
                   </span>
                   {notice.attachments.length > 0 && (
-                    <FileText size={12} className={selectedNotice?.id === notice.id ? 'text-blue-200' : 'text-gray-400'} />
+                    <FileText size={12} className={selectedNotice?.id === notice.id ? 'text-blue-200' : 'text-gray-500'} />
                   )}
                 </div>
               </button>
@@ -161,7 +161,7 @@ export function Notices() {
             
             {filteredNotices.length === 0 && (
               <div className="text-center py-10 px-4">
-                <p className="text-[#86868b] text-[13px] font-medium">No notices found.</p>
+                <p className="text-white/60 text-[13px] font-medium">No notices found.</p>
               </div>
             )}
           </div>
@@ -169,7 +169,7 @@ export function Notices() {
       </div>
 
       {/* Main Content - Reading Pane */}
-      <div className="flex-1 bg-white flex flex-col h-full relative overflow-y-auto">
+      <div className="flex-1 bg-[#252525] flex flex-col h-full relative overflow-y-auto">
         <AnimatePresence mode="wait">
           {selectedNotice ? (
             <motion.div 
@@ -184,11 +184,11 @@ export function Notices() {
                 <span className={`px-3 py-1 rounded-full text-[12px] font-bold uppercase tracking-wider ${
                   selectedNotice.priority === 'high' ? 'bg-red-50 text-red-600' : 
                   selectedNotice.priority === 'medium' ? 'bg-amber-50 text-amber-600' : 
-                  'bg-blue-50 text-blue-600'
+                  'bg-blue-500/10 text-blue-600'
                 }`}>
                   {selectedNotice.priority} Priority
                 </span>
-                <span className="text-[#86868b] text-[13px] font-medium flex items-center gap-1.5">
+                <span className="text-white/60 text-[13px] font-medium flex items-center gap-1.5">
                   <Calendar size={14} /> {selectedNotice.date}
                 </span>
                 {selectedNotice.isPinned && (
@@ -198,26 +198,26 @@ export function Notices() {
                 )}
               </div>
 
-              <h1 className="text-[32px] font-semibold text-[#1d1d1f] tracking-tight leading-tight mb-4">
+              <h1 className="text-[32px] font-semibold text-white/90 tracking-tight leading-tight mb-4">
                 {selectedNotice.title}
               </h1>
 
-              <div className="flex items-center justify-between pb-6 border-b border-gray-100 mb-8">
+              <div className="flex items-center justify-between pb-6 border-b border-white/10 mb-8">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-500 border border-gray-200">
+                  <div className="w-10 h-10 rounded-full bg-[#2a2a2a] flex items-center justify-center text-gray-500 border border-white/10">
                     <Info size={20} />
                   </div>
                   <div>
-                    <p className="text-[14px] font-semibold text-[#1d1d1f]">{selectedNotice.issuer}</p>
-                    <p className="text-[13px] text-[#86868b]">Official Notification</p>
+                    <p className="text-[14px] font-semibold text-white/90">{selectedNotice.issuer}</p>
+                    <p className="text-[13px] text-white/60">Official Notification</p>
                   </div>
                 </div>
                 
                 <div className="flex gap-2">
-                  <button className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-gray-100 hover:text-[#1d1d1f] transition-colors border border-gray-200 shadow-sm">
+                  <button className="w-9 h-9 rounded-full bg-[#1e1e1e] flex items-center justify-center text-gray-600 hover:bg-[#2a2a2a] hover:text-white/90 transition-colors border border-white/10 shadow-sm">
                     <Share2 size={16} />
                   </button>
-                  <button className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center text-gray-600 hover:bg-gray-100 hover:text-[#1d1d1f] transition-colors border border-gray-200 shadow-sm">
+                  <button className="w-9 h-9 rounded-full bg-[#1e1e1e] flex items-center justify-center text-gray-600 hover:bg-[#2a2a2a] hover:text-white/90 transition-colors border border-white/10 shadow-sm">
                     <Download size={16} />
                   </button>
                 </div>
@@ -231,18 +231,18 @@ export function Notices() {
 
               {selectedNotice.attachments.length > 0 && (
                 <div>
-                  <h3 className="text-[14px] font-semibold text-[#1d1d1f] mb-4 uppercase tracking-wider">Attachments</h3>
+                  <h3 className="text-[14px] font-semibold text-white/90 mb-4 uppercase tracking-wider">Attachments</h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {selectedNotice.attachments.map((file: any, idx: number) => (
-                      <div key={idx} className="bg-gray-50 rounded-[16px] p-4 border border-gray-200 flex items-center gap-4 hover:border-blue-300 hover:bg-blue-50/50 transition-colors cursor-pointer group">
+                      <div key={idx} className="bg-[#1e1e1e] rounded-[16px] p-4 border border-white/10 flex items-center gap-4 hover:border-blue-300 hover:bg-blue-500/10/50 transition-colors cursor-pointer group">
                         <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center text-red-600">
                           <FileText size={24} />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-[14px] font-semibold text-[#1d1d1f] truncate mb-0.5 group-hover:text-blue-600 transition-colors">{file.name}</p>
-                          <p className="text-[12px] text-[#86868b]">{file.size} • PDF Document</p>
+                          <p className="text-[14px] font-semibold text-white/90 truncate mb-0.5 group-hover:text-blue-600 transition-colors">{file.name}</p>
+                          <p className="text-[12px] text-white/60">{file.size} • PDF Document</p>
                         </div>
-                        <Download size={18} className="text-gray-400 group-hover:text-blue-500" />
+                        <Download size={18} className="text-gray-500 group-hover:text-blue-500" />
                       </div>
                     ))}
                   </div>
@@ -251,11 +251,11 @@ export function Notices() {
             </motion.div>
           ) : (
             <div className="flex flex-col items-center justify-center h-full text-center p-8">
-              <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center text-gray-300 mb-6">
+              <div className="w-20 h-20 bg-[#1e1e1e] rounded-full flex items-center justify-center text-gray-300 mb-6">
                 <Bell size={32} />
               </div>
-              <h2 className="text-[20px] font-semibold text-[#1d1d1f] mb-2">Select a Notice</h2>
-              <p className="text-[#86868b] text-[14px] max-w-[280px]">Choose a notice from the sidebar to read its full contents and download attachments.</p>
+              <h2 className="text-[20px] font-semibold text-white/90 mb-2">Select a Notice</h2>
+              <p className="text-white/60 text-[14px] max-w-[280px]">Choose a notice from the sidebar to read its full contents and download attachments.</p>
             </div>
           )}
         </AnimatePresence>

@@ -80,10 +80,10 @@ export function AIExamPrep() {
   };
 
   return (
-    <div className="flex flex-col h-full w-full bg-[#f5f5f7]">
+    <div className="flex flex-col h-full w-full bg-[#1c1c1e]">
       {/* App Header */}
-      <div className="h-[60px] flex items-center justify-between px-8 shrink-0 bg-[#f5f5f7] sticky top-0 z-10 pt-2 border-b border-black/[0.04]">
-        <div className="flex items-center gap-3 text-[#1d1d1f] font-semibold text-[18px] tracking-tight">
+      <div className="h-[60px] flex items-center justify-between px-8 shrink-0 bg-[#1c1c1e] sticky top-0 z-10 pt-2 border-b border-white/5">
+        <div className="flex items-center gap-3 text-white/90 font-semibold text-[18px] tracking-tight">
           <div className="w-8 h-8 rounded-lg bg-blue-500 flex items-center justify-center text-white shadow-sm">
             <BrainCircuit size={18} />
           </div>
@@ -96,7 +96,7 @@ export function AIExamPrep() {
         {view !== 'course-list' && (
           <button 
             onClick={view === 'dashboard' ? handleBackToCourses : () => setView('dashboard')}
-            className="flex items-center gap-1.5 text-[#0066cc] hover:text-[#004499] transition-colors bg-blue-50/50 px-3 py-1.5 rounded-full text-[13px] font-medium"
+            className="flex items-center gap-1.5 text-[#0066cc] hover:text-[#004499] transition-colors bg-blue-500/10/50 px-3 py-1.5 rounded-full text-[13px] font-medium"
           >
             <ArrowLeft size={14} />
             <span>Back</span>
@@ -111,8 +111,8 @@ export function AIExamPrep() {
               <div className="max-w-[1000px] mx-auto pt-4">
                 <div className="flex items-center justify-between mb-8">
                   <div>
-                    <h2 className="text-[28px] font-semibold text-[#1d1d1f] tracking-tight">Select Course to Prep</h2>
-                    <p className="text-[#86868b] text-[15px] font-medium mt-1">Gemini analyzes your performance to create targeted practice per course.</p>
+                    <h2 className="text-[28px] font-semibold text-white/90 tracking-tight">Select Course to Prep</h2>
+                    <p className="text-white/60 text-[15px] font-medium mt-1">Gemini analyzes your performance to create targeted practice per course.</p>
                   </div>
                   <button 
                     onClick={() => setShowAddModal(true)}
@@ -123,7 +123,7 @@ export function AIExamPrep() {
                 </div>
 
                 {loadingCourses ? (
-                  <div className="flex flex-col items-center justify-center py-20 text-[#86868b]">
+                  <div className="flex flex-col items-center justify-center py-20 text-white/60">
                     <Loader2 className="animate-spin mb-4" size={32} />
                     <p>Loading courses...</p>
                   </div>
@@ -133,13 +133,13 @@ export function AIExamPrep() {
                       <div 
                         key={c.id} 
                         onClick={() => openCourseDashboard(c)}
-                        className="bg-white rounded-[20px] p-6 shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-black/[0.03] cursor-pointer hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all group"
+                        className="bg-[#252525] rounded-[20px] p-6 shadow-md border border-white/5 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all group"
                       >
-                        <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-4 group-hover:scale-110 transition-transform">
+                        <div className="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-600 mb-4 group-hover:scale-110 transition-transform">
                           <BookOpen size={24} />
                         </div>
-                        <h3 className="text-[14px] font-bold text-[#86868b] tracking-wider uppercase mb-1">{c.code}</h3>
-                        <h4 className="text-[18px] font-semibold text-[#1d1d1f] leading-tight mb-4">{c.title}</h4>
+                        <h3 className="text-[14px] font-bold text-white/60 tracking-wider uppercase mb-1">{c.code}</h3>
+                        <h4 className="text-[18px] font-semibold text-white/90 leading-tight mb-4">{c.title}</h4>
                         <div className="flex items-center gap-1.5 text-[#0066cc] text-[13px] font-medium mt-auto group-hover:gap-2 transition-all">
                           Start Prep <ChevronRight size={14} />
                         </div>
@@ -192,11 +192,11 @@ export function AIExamPrep() {
             >
               <motion.div 
                 initial={{ scale: 0.95, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.95, y: 20 }}
-                className="bg-white rounded-[24px] shadow-2xl border border-white/20 w-full max-w-[480px] overflow-hidden"
+                className="bg-[#252525] rounded-[24px] shadow-2xl border border-white/20 w-full max-w-[480px] overflow-hidden"
               >
-                <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-gray-50/50">
-                  <h3 className="text-[16px] font-semibold text-[#1d1d1f]">Add New Course</h3>
-                  <button onClick={() => setShowAddModal(false)} className="text-gray-400 hover:text-gray-700 transition-colors">
+                <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-[#1e1e1e]/50">
+                  <h3 className="text-[16px] font-semibold text-white/90">Add New Course</h3>
+                  <button onClick={() => setShowAddModal(false)} className="text-gray-500 hover:text-gray-700 transition-colors">
                     <X size={20} />
                   </button>
                 </div>
@@ -209,23 +209,23 @@ export function AIExamPrep() {
                   )}
                   
                   <div className="flex flex-col gap-2">
-                    <label className="text-[13px] font-medium text-[#1d1d1f]">Course Code</label>
+                    <label className="text-[13px] font-medium text-white/90">Course Code</label>
                     <input 
                       type="text" 
                       placeholder="e.g. MATH101" 
                       value={newCode} onChange={(e) => setNewCode(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-[14px] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                      className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#1e1e1e] text-[14px] focus:bg-[#252525] focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                       required
                     />
                   </div>
 
                   <div className="flex flex-col gap-2">
-                    <label className="text-[13px] font-medium text-[#1d1d1f]">Course Title</label>
+                    <label className="text-[13px] font-medium text-white/90">Course Title</label>
                     <input 
                       type="text" 
                       placeholder="e.g. Introduction to Calculus" 
                       value={newTitle} onChange={(e) => setNewTitle(e.target.value)}
-                      className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-[14px] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                      className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#1e1e1e] text-[14px] focus:bg-[#252525] focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                       required
                     />
                   </div>
@@ -234,7 +234,7 @@ export function AIExamPrep() {
                     <button 
                       type="button" 
                       onClick={() => setShowAddModal(false)}
-                      className="px-5 py-2.5 rounded-full font-medium text-[14px] text-[#515154] hover:bg-gray-100 transition-colors"
+                      className="px-5 py-2.5 rounded-full font-medium text-[14px] text-white/70 hover:bg-[#2a2a2a] transition-colors"
                     >
                       Cancel
                     </button>
@@ -305,7 +305,7 @@ function DashboardView({ course, studentRoll, onPractice, onStudyPlan, onCourseU
 
   if (loading) {
     return (
-      <div className="w-full h-[400px] flex flex-col items-center justify-center text-[#86868b]">
+      <div className="w-full h-[400px] flex flex-col items-center justify-center text-white/60">
         <Loader2 className="animate-spin mb-4" size={32} />
         <p className="text-[14px] font-medium tracking-tight">Syncing performance data for {course.code}...</p>
       </div>
@@ -320,11 +320,11 @@ function DashboardView({ course, studentRoll, onPractice, onStudyPlan, onCourseU
   return (
     <div className="max-w-[840px] mx-auto flex flex-col gap-8">
       {/* Hero Section */}
-      <div className="bg-white rounded-[20px] p-8 shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-black/[0.03] flex items-center justify-between relative overflow-hidden">
+      <div className="bg-[#252525] rounded-[20px] p-8 shadow-lg border border-white/5 flex items-center justify-between relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-100 to-purple-50 rounded-full blur-3xl -mr-20 -mt-20 opacity-60 pointer-events-none" />
         <div className="relative z-10">
-          <h2 className="text-[28px] font-semibold text-[#1d1d1f] tracking-tight mb-2">Prep for {course.code}</h2>
-          <p className="text-[#86868b] text-[15px] font-medium max-w-md">Gemini analyzes your past performance to generate targeted practice questions and optimized study plans.</p>
+          <h2 className="text-[28px] font-semibold text-white/90 tracking-tight mb-2">Prep for {course.code}</h2>
+          <p className="text-white/60 text-[15px] font-medium max-w-md">Gemini analyzes your past performance to generate targeted practice questions and optimized study plans.</p>
         </div>
         <div className="relative z-10 flex flex-col gap-3">
           <button 
@@ -336,7 +336,7 @@ function DashboardView({ course, studentRoll, onPractice, onStudyPlan, onCourseU
           </button>
           <button 
             onClick={() => setShowMaterialsModal(true)}
-            className="bg-white border border-gray-200 text-[#1d1d1f] px-6 py-2.5 rounded-full font-medium text-[13px] hover:bg-gray-50 transition-all flex items-center justify-center gap-2"
+            className="bg-[#252525] border border-white/10 text-white/90 px-6 py-2.5 rounded-full font-medium text-[13px] hover:bg-[#1e1e1e] transition-all flex items-center justify-center gap-2"
           >
             <Settings2 size={14} />
             Manage AI Materials
@@ -345,22 +345,22 @@ function DashboardView({ course, studentRoll, onPractice, onStudyPlan, onCourseU
       </div>
 
       <div>
-        <h3 className="text-[18px] font-semibold text-[#1d1d1f] mb-4 tracking-tight px-1">Topic Performance</h3>
+        <h3 className="text-[18px] font-semibold text-white/90 mb-4 tracking-tight px-1">Topic Performance</h3>
         
         {performances.length === 0 ? (
-          <div className="bg-white rounded-[16px] p-8 border border-black/[0.02] text-center shadow-sm">
-            <p className="text-[#86868b] text-[15px] font-medium">No performance data recorded for this course yet.</p>
-            <p className="text-[#86868b] text-[13px] mt-1">Start by practicing topics or using the Mind Map.</p>
+          <div className="bg-[#252525] rounded-[16px] p-8 border border-white/5 text-center shadow-sm">
+            <p className="text-white/60 text-[15px] font-medium">No performance data recorded for this course yet.</p>
+            <p className="text-white/60 text-[13px] mt-1">Start by practicing topics or using the Mind Map.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {performances.map((perf: any) => {
               const isWeak = perf.masteryPercent < 60;
               return (
-                <div key={perf.id} className="bg-white rounded-[16px] p-5 shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-black/[0.02] flex flex-col hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-all group">
+                <div key={perf.id} className="bg-[#252525] rounded-[16px] p-5 shadow-[0_2px_8px_rgba(0,0,0,0.03)] border border-white/5 flex flex-col hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)] transition-all group">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex flex-col gap-1.5">
-                      <h3 className="text-[16px] font-semibold text-[#1d1d1f] tracking-tight">{perf.topic.name}</h3>
+                      <h3 className="text-[16px] font-semibold text-white/90 tracking-tight">{perf.topic.name}</h3>
                       {isWeak && (
                         <span className="inline-flex items-center gap-1 bg-red-50 text-red-600 text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full w-fit">
                           <AlertCircle size={10} /> Needs Review
@@ -372,7 +372,7 @@ function DashboardView({ course, studentRoll, onPractice, onStudyPlan, onCourseU
                     </div>
                   </div>
                   
-                  <div className="w-full h-[6px] bg-gray-100 rounded-full overflow-hidden mb-5">
+                  <div className="w-full h-[6px] bg-[#2a2a2a] rounded-full overflow-hidden mb-5">
                     <div 
                       className={`h-full rounded-full transition-all duration-1000 ease-out ${
                         perf.masteryPercent < 50 ? 'bg-red-500' : 
@@ -384,7 +384,7 @@ function DashboardView({ course, studentRoll, onPractice, onStudyPlan, onCourseU
 
                   <button 
                     onClick={() => onPractice(perf.topic)}
-                    className="mt-auto w-full py-2 bg-gray-50 group-hover:bg-blue-50 text-[#1d1d1f] group-hover:text-[#0066cc] rounded-lg text-[13px] font-medium transition-colors flex items-center justify-center gap-1.5"
+                    className="mt-auto w-full py-2 bg-[#1e1e1e] group-hover:bg-blue-500/10 text-white/90 group-hover:text-[#0066cc] rounded-lg text-[13px] font-medium transition-colors flex items-center justify-center gap-1.5"
                   >
                     Practice Topic <ChevronRight size={14} />
                   </button>
@@ -404,48 +404,48 @@ function DashboardView({ course, studentRoll, onPractice, onStudyPlan, onCourseU
           >
             <motion.div 
               initial={{ scale: 0.95, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.95, y: 20 }}
-              className="bg-white rounded-[24px] shadow-2xl border border-white/20 w-full max-w-[600px] overflow-hidden flex flex-col max-h-[85vh]"
+              className="bg-[#252525] rounded-[24px] shadow-2xl border border-white/20 w-full max-w-[600px] overflow-hidden flex flex-col max-h-[85vh]"
             >
-              <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-gray-50/50">
+              <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-[#1e1e1e]/50">
                 <div>
-                  <h3 className="text-[16px] font-semibold text-[#1d1d1f]">Manage AI Materials</h3>
-                  <p className="text-[12px] text-[#86868b] mt-0.5">Gemini will use this context to tailor its practice questions.</p>
+                  <h3 className="text-[16px] font-semibold text-white/90">Manage AI Materials</h3>
+                  <p className="text-[12px] text-white/60 mt-0.5">Gemini will use this context to tailor its practice questions.</p>
                 </div>
-                <button onClick={() => setShowMaterialsModal(false)} className="text-gray-400 hover:text-gray-700 transition-colors">
+                <button onClick={() => setShowMaterialsModal(false)} className="text-gray-500 hover:text-gray-700 transition-colors">
                   <X size={20} />
                 </button>
               </div>
               
               <div className="p-6 flex flex-col gap-6 overflow-y-auto">
                 <div className="flex flex-col gap-2">
-                  <label className="text-[13px] font-medium text-[#1d1d1f] flex items-center justify-between">
+                  <label className="text-[13px] font-medium text-white/90 flex items-center justify-between">
                     Course Syllabus / Topics
-                    <span className="text-[11px] font-normal text-gray-400 font-mono">{syllabusText.length} chars</span>
+                    <span className="text-[11px] font-normal text-gray-500 font-mono">{syllabusText.length} chars</span>
                   </label>
                   <textarea 
                     placeholder="Paste the course syllabus, curriculum, or high-level topics here..." 
                     value={syllabusText} onChange={(e) => setSyllabusText(e.target.value)}
-                    className="w-full h-32 px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-[14px] text-[#1d1d1f] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all resize-none font-sans"
+                    className="w-full h-32 px-4 py-3 rounded-xl border border-white/10 bg-[#1e1e1e] text-[14px] text-white/90 focus:bg-[#252525] focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all resize-none font-sans"
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-[13px] font-medium text-[#1d1d1f] flex items-center justify-between">
+                  <label className="text-[13px] font-medium text-white/90 flex items-center justify-between">
                     Past Questions / Exams Reference
-                    <span className="text-[11px] font-normal text-gray-400 font-mono">{pastQuestionsText.length} chars</span>
+                    <span className="text-[11px] font-normal text-gray-500 font-mono">{pastQuestionsText.length} chars</span>
                   </label>
                   <textarea 
                     placeholder="Paste past exam questions here. Gemini will mimic their style and difficulty..." 
                     value={pastQuestionsText} onChange={(e) => setPastQuestionsText(e.target.value)}
-                    className="w-full h-32 px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-[14px] text-[#1d1d1f] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all resize-none font-sans"
+                    className="w-full h-32 px-4 py-3 rounded-xl border border-white/10 bg-[#1e1e1e] text-[14px] text-white/90 focus:bg-[#252525] focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all resize-none font-sans"
                   />
                 </div>
               </div>
 
-              <div className="px-6 py-4 bg-gray-50/50 border-t border-gray-100 flex justify-end gap-3 mt-auto">
+              <div className="px-6 py-4 bg-[#1e1e1e]/50 border-t border-white/10 flex justify-end gap-3 mt-auto">
                 <button 
                   onClick={() => setShowMaterialsModal(false)}
-                  className="px-5 py-2.5 rounded-full font-medium text-[14px] text-[#515154] hover:bg-gray-200 transition-colors"
+                  className="px-5 py-2.5 rounded-full font-medium text-[14px] text-white/70 hover:bg-white/10 transition-colors"
                 >
                   Cancel
                 </button>
@@ -534,7 +534,7 @@ function PracticeView({ topic, courseId, onComplete }: { topic: any, courseId: s
 
   if (loading) {
     return (
-      <div className="w-full py-32 flex flex-col items-center text-[#86868b]">
+      <div className="w-full py-32 flex flex-col items-center text-white/60">
         <div className="relative w-16 h-16 mb-6">
           <div className="absolute inset-0 bg-blue-500 rounded-full animate-ping opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-tr from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
@@ -548,10 +548,10 @@ function PracticeView({ topic, courseId, onComplete }: { topic: any, courseId: s
 
   if (questions.length === 0) {
     return (
-      <div className="w-full py-20 flex flex-col items-center text-[#1d1d1f]">
+      <div className="w-full py-20 flex flex-col items-center text-white/90">
         <AlertCircle size={48} className="text-red-500 mb-4" />
         <p className="font-medium text-[15px] mb-6">Failed to generate questions. Please ensure your API key is valid.</p>
-        <button onClick={onComplete} className="bg-gray-100 px-6 py-2 rounded-full font-medium text-[13px] hover:bg-gray-200">Go Back</button>
+        <button onClick={onComplete} className="bg-[#2a2a2a] px-6 py-2 rounded-full font-medium text-[13px] hover:bg-white/10">Go Back</button>
       </div>
     );
   }
@@ -560,17 +560,17 @@ function PracticeView({ topic, courseId, onComplete }: { topic: any, courseId: s
 
   return (
     <div className="max-w-[700px] mx-auto flex flex-col gap-6">
-      <div className="flex items-center justify-between text-[13px] font-medium text-[#86868b] px-1">
+      <div className="flex items-center justify-between text-[13px] font-medium text-white/60 px-1">
         <span>Question {currentIndex + 1} of {questions.length}</span>
         <div className="flex gap-1">
           {questions.map((_, i) => (
-            <div key={i} className={`h-1.5 rounded-full transition-all ${i === currentIndex ? 'w-6 bg-blue-500' : i < currentIndex ? 'w-2 bg-emerald-500' : 'w-2 bg-gray-200'}`} />
+            <div key={i} className={`h-1.5 rounded-full transition-all ${i === currentIndex ? 'w-6 bg-blue-500' : i < currentIndex ? 'w-2 bg-emerald-500' : 'w-2 bg-white/10'}`} />
           ))}
         </div>
       </div>
 
-      <div className="bg-white rounded-[20px] p-8 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-black/[0.02]">
-        <h3 className="text-[18px] text-[#1d1d1f] font-medium mb-6 leading-relaxed tracking-tight">
+      <div className="bg-[#252525] rounded-[20px] p-8 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-white/5">
+        <h3 className="text-[18px] text-white/90 font-medium mb-6 leading-relaxed tracking-tight">
           {currentQ.question}
         </h3>
         
@@ -579,7 +579,7 @@ function PracticeView({ topic, courseId, onComplete }: { topic: any, courseId: s
           onChange={(e) => setAnswer(e.target.value)}
           disabled={!!evaluation || evaluating}
           placeholder="Type your answer here..."
-          className="w-full h-[140px] p-5 rounded-[12px] border border-gray-200 bg-gray-50 text-[15px] text-[#1d1d1f] placeholder:text-[#86868b] focus:outline-none focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-500/10 resize-none disabled:opacity-60 transition-all leading-relaxed"
+          className="w-full h-[140px] p-5 rounded-[12px] border border-white/10 bg-[#1e1e1e] text-[15px] text-white/90 placeholder:text-white/60 focus:outline-none focus:border-blue-500 focus:bg-[#252525] focus:ring-4 focus:ring-blue-500/10 resize-none disabled:opacity-60 transition-all leading-relaxed"
         />
 
         {!evaluation ? (
@@ -602,7 +602,7 @@ function PracticeView({ topic, courseId, onComplete }: { topic: any, courseId: s
               </h4>
             </div>
             
-            <p className="text-[15px] text-[#1d1d1f] mb-5 leading-relaxed bg-white/50 p-4 rounded-xl border border-black/[0.02]">{evaluation.feedback}</p>
+            <p className="text-[15px] text-white/90 mb-5 leading-relaxed bg-[#252525]/50 p-4 rounded-xl border border-white/5">{evaluation.feedback}</p>
             
             {evaluation.weakSubconceptDetected && (
               <div className="inline-flex items-center gap-2 bg-red-100/50 border border-red-200/50 px-3 py-1.5 rounded-lg text-[12px] text-red-700 font-medium mb-5">
@@ -610,10 +610,10 @@ function PracticeView({ topic, courseId, onComplete }: { topic: any, courseId: s
               </div>
             )}
 
-            <div className="flex justify-end pt-2 border-t border-black/[0.03]">
+            <div className="flex justify-end pt-2 border-t border-white/5">
               <button
                 onClick={handleNext}
-                className="bg-white border border-gray-200 text-[#1d1d1f] px-6 py-2 rounded-full font-medium text-[13px] hover:bg-gray-50 hover:border-gray-300 transition-all shadow-sm"
+                className="bg-[#252525] border border-white/10 text-white/90 px-6 py-2 rounded-full font-medium text-[13px] hover:bg-[#1e1e1e] hover:border-white/20 transition-all shadow-sm"
               >
                 {currentIndex < questions.length - 1 ? 'Next Question' : 'Finish Practice'}
               </button>
@@ -659,7 +659,7 @@ function StudyPlanView({ data }: { data: any }) {
 
   if (loading) {
     return (
-      <div className="w-full py-32 flex flex-col items-center text-[#86868b]">
+      <div className="w-full py-32 flex flex-col items-center text-white/60">
         <div className="relative w-16 h-16 mb-6">
           <div className="absolute inset-0 bg-blue-500 rounded-full animate-ping opacity-20" />
           <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-full flex items-center justify-center text-white shadow-lg shadow-blue-500/30">
@@ -673,7 +673,7 @@ function StudyPlanView({ data }: { data: any }) {
 
   if (plan.length === 0) {
     return (
-      <div className="w-full py-20 flex flex-col items-center text-[#1d1d1f]">
+      <div className="w-full py-20 flex flex-col items-center text-white/90">
         <AlertCircle size={48} className="text-red-500 mb-4" />
         <p className="font-medium text-[15px]">Failed to generate study plan. Please ensure your API key is valid.</p>
       </div>
@@ -682,12 +682,12 @@ function StudyPlanView({ data }: { data: any }) {
 
   return (
     <div className="max-w-[700px] mx-auto flex flex-col gap-8 pb-12">
-      <div className="bg-gradient-to-br from-[#f5f7fa] to-[#e4e9f2] rounded-[20px] p-8 border border-white/50 shadow-[0_2px_10px_rgba(0,0,0,0.02)] relative overflow-hidden">
+      <div className="bg-gradient-to-br from-[#252525] to-[#1c1c1e] rounded-[20px] p-8 border border-white/50 shadow-[0_2px_10px_rgba(0,0,0,0.02)] relative overflow-hidden">
         <div className="absolute right-0 top-0 opacity-10 text-blue-900 pointer-events-none transform translate-x-4 -translate-y-4">
           <Target size={120} />
         </div>
-        <h2 className="text-[28px] font-semibold text-[#1d1d1f] tracking-tight mb-2">120-Minute Action Plan</h2>
-        <p className="text-[#515154] text-[15px] font-medium max-w-[480px] leading-relaxed">
+        <h2 className="text-[28px] font-semibold text-white/90 tracking-tight mb-2">120-Minute Action Plan</h2>
+        <p className="text-white/70 text-[15px] font-medium max-w-[480px] leading-relaxed">
           Prioritized dynamically based on topics with high exam frequency and your current mastery gaps.
         </p>
       </div>
@@ -701,18 +701,18 @@ function StudyPlanView({ data }: { data: any }) {
             transition={{ delay: idx * 0.1 }}
             className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group"
           >
-            <div className="flex items-center justify-center w-16 h-16 rounded-full border-4 border-[#f5f5f7] bg-white absolute left-0 md:left-1/2 -translate-x-0 md:-translate-x-1/2 shadow-sm z-10 text-blue-500 font-bold text-[18px]">
+            <div className="flex items-center justify-center w-16 h-16 rounded-full border-4 border-[#f5f5f7] bg-[#252525] absolute left-0 md:left-1/2 -translate-x-0 md:-translate-x-1/2 shadow-sm z-10 text-blue-500 font-bold text-[18px]">
               {step.stepNumber}
             </div>
             
-            <div className="w-[calc(100%-5rem)] md:w-[calc(50%-2.5rem)] ml-20 md:ml-0 bg-white rounded-[16px] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-black/[0.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all">
+            <div className="w-[calc(100%-5rem)] md:w-[calc(50%-2.5rem)] ml-20 md:ml-0 bg-[#252525] rounded-[16px] p-6 shadow-[0_2px_12px_rgba(0,0,0,0.03)] border border-white/5 hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)] transition-all">
               <div className="flex items-center justify-between mb-3 gap-4">
-                <h3 className="text-[16px] font-semibold text-[#1d1d1f] tracking-tight">{step.topic}</h3>
-                <span className="shrink-0 inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 font-bold text-[11px] px-2.5 py-1 rounded-full uppercase tracking-wide">
+                <h3 className="text-[16px] font-semibold text-white/90 tracking-tight">{step.topic}</h3>
+                <span className="shrink-0 inline-flex items-center gap-1.5 bg-blue-500/10 text-blue-700 font-bold text-[11px] px-2.5 py-1 rounded-full uppercase tracking-wide">
                   <Clock size={12} /> {step.durationMinutes}m
                 </span>
               </div>
-              <p className="text-[14px] text-[#515154] leading-relaxed">{step.action}</p>
+              <p className="text-[14px] text-white/70 leading-relaxed">{step.action}</p>
             </div>
           </motion.div>
         ))}

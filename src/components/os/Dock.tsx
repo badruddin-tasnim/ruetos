@@ -28,7 +28,7 @@ export function Dock() {
 
   return (
     <div className="fixed bottom-3 left-1/2 -translate-x-1/2 z-[9999]">
-      <div className="flex items-end gap-2 px-4 py-2 bg-white/20 dark:bg-white/10 backdrop-blur-2xl rounded-2xl border border-white/25 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
+      <div className="flex items-end gap-2 px-4 py-2 bg-[#252525]/20 dark:bg-[#252525]/10 backdrop-blur-2xl rounded-2xl border border-white/25 shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
         {DOCK_APPS.map((app) => {
           const isOpen = windows.some((w) => w.appId === app.id && w.isOpen);
           const Icon = app.icon;
@@ -70,7 +70,7 @@ export function Dock() {
               {/* Running indicator dot */}
               <div className="h-[5px] flex items-center justify-center mt-1">
                 {isOpen && (
-                  <div className="w-[4px] h-[4px] rounded-full bg-white/70" />
+                  <div className="w-[4px] h-[4px] rounded-full bg-[#252525]/70" />
                 )}
               </div>
             </div>

@@ -51,7 +51,7 @@
 
 @layer base {
   body {
-    @apply bg-ink-navy text-graphite font-body antialiased;
+    @apply bg-ink-navy text-gray-200 font-body antialiased;
     overflow: hidden;
   }
 }

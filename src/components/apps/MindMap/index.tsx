@@ -103,8 +103,8 @@ export function MindMap() {
   return (
     <div className="flex flex-col h-full w-full bg-transparent relative">
       {/* App Header (Dashboard/List View) */}
-      <div className="h-[60px] flex items-center justify-between px-8 shrink-0 bg-transparent sticky top-0 z-10 pt-2 border-b border-black/[0.04]">
-        <div className="flex items-center gap-3 text-[#1d1d1f] font-semibold text-[18px] tracking-tight">
+      <div className="h-[60px] flex items-center justify-between px-8 shrink-0 bg-transparent sticky top-0 z-10 pt-2 border-b border-white/5">
+        <div className="flex items-center gap-3 text-white/90 font-semibold text-[18px] tracking-tight">
           <div className="w-8 h-8 rounded-lg bg-emerald-500 flex items-center justify-center text-white shadow-sm">
             <Network size={18} />
           </div>
@@ -114,7 +114,7 @@ export function MindMap() {
         {view === 'mindmap' && (
           <button 
             onClick={() => setView('course-list')}
-            className="flex items-center gap-1.5 text-[#0066cc] hover:text-[#004499] transition-colors bg-blue-50/50 px-3 py-1.5 rounded-full text-[13px] font-medium"
+            className="flex items-center gap-1.5 text-[#0066cc] hover:text-[#004499] transition-colors bg-blue-500/10/50 px-3 py-1.5 rounded-full text-[13px] font-medium"
           >
             <ArrowLeft size={14} />
             <span>Back to Courses</span>
@@ -127,8 +127,8 @@ export function MindMap() {
           <div className="max-w-[1000px] mx-auto">
             <div className="flex items-center justify-between mb-8">
               <div>
-                <h2 className="text-[28px] font-semibold text-[#1d1d1f] tracking-tight">Your Courses</h2>
-                <p className="text-[#86868b] text-[15px] font-medium mt-1">Select a course to explore its knowledge graph.</p>
+                <h2 className="text-[28px] font-semibold text-white/90 tracking-tight">Your Courses</h2>
+                <p className="text-white/60 text-[15px] font-medium mt-1">Select a course to explore its knowledge graph.</p>
               </div>
               <button 
                 onClick={() => setShowAddModal(true)}
@@ -139,7 +139,7 @@ export function MindMap() {
             </div>
 
             {loadingCourses ? (
-              <div className="flex flex-col items-center justify-center py-20 text-[#86868b]">
+              <div className="flex flex-col items-center justify-center py-20 text-white/60">
                 <Loader2 className="animate-spin mb-4" size={32} />
                 <p>Loading courses...</p>
               </div>
@@ -149,13 +149,13 @@ export function MindMap() {
                   <div 
                     key={c.id} 
                     onClick={() => openMindMap(c.id)}
-                    className="bg-white rounded-[20px] p-6 shadow-[0_2px_10px_rgba(0,0,0,0.03)] border border-black/[0.03] cursor-pointer hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all group"
+                    className="bg-[#252525] rounded-[20px] p-6 shadow-md border border-white/5 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all group"
                   >
                     <div className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 mb-4 group-hover:scale-110 transition-transform">
                       <BookOpen size={24} />
                     </div>
-                    <h3 className="text-[14px] font-bold text-[#86868b] tracking-wider uppercase mb-1">{c.code}</h3>
-                    <h4 className="text-[18px] font-semibold text-[#1d1d1f] leading-tight mb-4">{c.title}</h4>
+                    <h3 className="text-[14px] font-bold text-white/60 tracking-wider uppercase mb-1">{c.code}</h3>
+                    <h4 className="text-[18px] font-semibold text-white/90 leading-tight mb-4">{c.title}</h4>
                     <div className="flex items-center gap-1.5 text-[#0066cc] text-[13px] font-medium mt-auto group-hover:gap-2 transition-all">
                       Open Map <ChevronRight size={14} />
                     </div>
@@ -180,11 +180,11 @@ export function MindMap() {
           >
             <motion.div 
               initial={{ scale: 0.95, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.95, y: 20 }}
-              className="bg-white rounded-[24px] shadow-2xl border border-white/20 w-full max-w-[480px] overflow-hidden"
+              className="bg-[#252525] rounded-[24px] shadow-2xl border border-white/20 w-full max-w-[480px] overflow-hidden"
             >
-              <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between bg-gray-50/50">
-                <h3 className="text-[16px] font-semibold text-[#1d1d1f]">Add New Course</h3>
-                <button onClick={() => setShowAddModal(false)} className="text-gray-400 hover:text-gray-700 transition-colors">
+              <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-[#1e1e1e]/50">
+                <h3 className="text-[16px] font-semibold text-white/90">Add New Course</h3>
+                <button onClick={() => setShowAddModal(false)} className="text-gray-500 hover:text-gray-700 transition-colors">
                   <X size={20} />
                 </button>
               </div>
@@ -197,23 +197,23 @@ export function MindMap() {
                 )}
                 
                 <div className="flex flex-col gap-2">
-                  <label className="text-[13px] font-medium text-[#1d1d1f]">Course Code</label>
+                  <label className="text-[13px] font-medium text-white/90">Course Code</label>
                   <input 
                     type="text" 
                     placeholder="e.g. MATH101" 
                     value={newCode} onChange={(e) => setNewCode(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-[14px] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                    className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#1e1e1e] text-[14px] focus:bg-[#252525] focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                     required
                   />
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-[13px] font-medium text-[#1d1d1f]">Course Title</label>
+                  <label className="text-[13px] font-medium text-white/90">Course Title</label>
                   <input 
                     type="text" 
                     placeholder="e.g. Introduction to Calculus" 
                     value={newTitle} onChange={(e) => setNewTitle(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 text-[14px] focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
+                    className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-[#1e1e1e] text-[14px] focus:bg-[#252525] focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all"
                     required
                   />
                 </div>
@@ -222,7 +222,7 @@ export function MindMap() {
                   <button 
                     type="button" 
                     onClick={() => setShowAddModal(false)}
-                    className="px-5 py-2.5 rounded-full font-medium text-[14px] text-[#515154] hover:bg-gray-100 transition-colors"
+                    className="px-5 py-2.5 rounded-full font-medium text-[14px] text-white/70 hover:bg-[#2a2a2a] transition-colors"
                   >
                     Cancel
                   </button>
@@ -396,7 +396,7 @@ function MindMapCanvas({ courseId }: { courseId: string }) {
 
   if (loading) {
     return (
-      <div className="w-full h-full flex flex-col items-center justify-center bg-transparent text-[#86868b]">
+      <div className="w-full h-full flex flex-col items-center justify-center bg-transparent text-white/60">
         <Loader2 className="animate-spin mb-4" size={32} />
         <p className="text-[14px] font-medium tracking-tight">Loading Map...</p>
       </div>
@@ -412,7 +412,7 @@ function MindMapCanvas({ courseId }: { courseId: string }) {
   }
 
   return (
-    <div className="flex w-full h-full bg-[#f5f5f7] overflow-hidden relative">
+    <div className="flex w-full h-full bg-[#1c1c1e] overflow-hidden relative">
       <div className="flex-1 h-full relative">
         {nodes.length > 0 ? (
           <ReactFlow
@@ -428,7 +428,7 @@ function MindMapCanvas({ courseId }: { courseId: string }) {
             maxZoom={1.5}
           >
             <Background color="rgba(0,0,0,0.05)" gap={24} size={1} />
-            <Controls showInteractive={false} className="bg-white/80 backdrop-blur-md shadow-sm border border-black/5 rounded-lg overflow-hidden" />
+            <Controls showInteractive={false} className="bg-[#252525]/80 backdrop-blur-md shadow-sm border border-black/5 rounded-lg overflow-hidden" />
           </ReactFlow>
         ) : (
           <div className="flex h-full items-center justify-center text-gray-500">
@@ -436,8 +436,8 @@ function MindMapCanvas({ courseId }: { courseId: string }) {
           </div>
         )}
 
-        <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-white/80 backdrop-blur-xl border border-black/5 shadow-sm rounded-full px-6 py-2.5 flex items-center gap-2 pointer-events-none z-10">
-          <p className="text-[#1d1d1f] text-[13px] font-medium tracking-tight">Click nodes to expand/collapse and view contents</p>
+        <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-[#252525]/80 backdrop-blur-xl border border-black/5 shadow-sm rounded-full px-6 py-2.5 flex items-center gap-2 pointer-events-none z-10">
+          <p className="text-white/90 text-[13px] font-medium tracking-tight">Click nodes to expand/collapse and view contents</p>
         </div>
       </div>
 
@@ -448,15 +448,15 @@ function MindMapCanvas({ courseId }: { courseId: string }) {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 380, opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="w-[360px] h-full bg-white/80 backdrop-blur-2xl border-l border-black/[0.04] shadow-[-8px_0_24px_rgba(0,0,0,0.03)] flex flex-col z-20 absolute right-0 top-0"
+            className="w-[360px] h-full bg-[#252525]/80 backdrop-blur-2xl border-l border-white/5 shadow-[-8px_0_24px_rgba(0,0,0,0.03)] flex flex-col z-20 absolute right-0 top-0"
           >
-            <div className="h-[60px] flex items-center justify-between px-5 border-b border-black/[0.04] shrink-0 pt-2">
+            <div className="h-[60px] flex items-center justify-between px-5 border-b border-white/5 shrink-0 pt-2">
               <div className="flex items-center gap-2">
                 <div className={`px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider ${
                   selectedNode.data.type === 'course' ? 'bg-blue-100 text-blue-700' :
                   selectedNode.data.type === 'chapter' ? 'bg-emerald-100 text-emerald-700' :
                   selectedNode.data.type === 'topic' ? 'bg-purple-100 text-purple-700' :
-                  'bg-gray-200 text-gray-700'
+                  'bg-white/10 text-gray-700'
                 }`}>
                   {selectedNode.data.type as string}
                 </div>
@@ -467,7 +467,7 @@ function MindMapCanvas({ courseId }: { courseId: string }) {
             </div>
 
             <div className="flex-1 overflow-y-auto p-5">
-              <h2 className="text-[20px] font-semibold text-[#1d1d1f] tracking-tight mb-2 leading-tight">
+              <h2 className="text-[20px] font-semibold text-white/90 tracking-tight mb-2 leading-tight">
                 {selectedNode.data.rawLabel as string}
               </h2>
               
@@ -475,26 +475,26 @@ function MindMapCanvas({ courseId }: { courseId: string }) {
                 <button className="flex-1 bg-[#0066cc] hover:bg-[#0055b3] text-white text-[13px] font-medium py-2 rounded-lg flex items-center justify-center gap-2 transition-colors shadow-sm">
                   <Plus size={16} /> Add Content
                 </button>
-                <button className="w-9 h-9 bg-gray-100 hover:bg-gray-200 text-[#1d1d1f] rounded-lg flex items-center justify-center transition-colors">
+                <button className="w-9 h-9 bg-[#2a2a2a] hover:bg-white/10 text-white/90 rounded-lg flex items-center justify-center transition-colors">
                   <MoreHorizontal size={16} />
                 </button>
               </div>
 
               <div className="mb-2">
-                <h3 className="text-[12px] font-bold text-[#86868b] uppercase tracking-wider mb-3">Contents</h3>
+                <h3 className="text-[12px] font-bold text-white/60 uppercase tracking-wider mb-3">Contents</h3>
                 <div className="flex flex-col gap-1">
                   {generateMockContents(selectedNode.data.type as string, selectedNode.data.rawLabel as string).map((item) => (
-                    <div key={item.id} className="group flex items-center justify-between p-2.5 hover:bg-blue-50/50 rounded-lg cursor-pointer transition-colors border border-transparent hover:border-blue-100">
+                    <div key={item.id} className="group flex items-center justify-between p-2.5 hover:bg-blue-500/10/50 rounded-lg cursor-pointer transition-colors border border-transparent hover:border-blue-100">
                       <div className="flex items-center gap-3 overflow-hidden">
                         {item.type === 'folder' ? <Folder size={18} className="text-blue-500 fill-blue-500/20 shrink-0" /> :
                          item.type === 'pdf' ? <FileText size={18} className="text-red-500 shrink-0" /> :
                          item.type === 'video' ? <FileVideo size={18} className="text-purple-500 shrink-0" /> :
                          item.type === 'code' ? <FileCode size={18} className="text-emerald-500 shrink-0" /> :
-                         <FileText size={18} className="text-gray-400 shrink-0" />}
+                         <FileText size={18} className="text-gray-500 shrink-0" />}
                          
                         <div className="flex flex-col truncate">
-                          <span className="text-[14px] text-[#1d1d1f] font-medium truncate">{item.name}</span>
-                          <span className="text-[11px] text-[#86868b]">{item.type === 'folder' ? `${item.items} items` : item.size}</span>
+                          <span className="text-[14px] text-white/90 font-medium truncate">{item.name}</span>
+                          <span className="text-[11px] text-white/60">{item.type === 'folder' ? `${item.items} items` : item.size}</span>
                         </div>
                       </div>
                       <ChevronRight size={14} className="text-gray-300 group-hover:text-blue-500 transition-colors" />
@@ -503,12 +503,12 @@ function MindMapCanvas({ courseId }: { courseId: string }) {
                 </div>
               </div>
               
-              <div className="mt-6 border-2 border-dashed border-gray-200 rounded-xl p-6 flex flex-col items-center justify-center bg-gray-50/50 text-center hover:bg-blue-50/30 hover:border-blue-300 transition-colors cursor-pointer">
-                <div className="w-10 h-10 bg-white rounded-full shadow-sm border border-gray-100 flex items-center justify-center text-gray-400 mb-3">
+              <div className="mt-6 border-2 border-dashed border-white/10 rounded-xl p-6 flex flex-col items-center justify-center bg-[#1e1e1e]/50 text-center hover:bg-blue-500/10/30 hover:border-blue-300 transition-colors cursor-pointer">
+                <div className="w-10 h-10 bg-[#252525] rounded-full shadow-sm border border-white/10 flex items-center justify-center text-gray-500 mb-3">
                   <Plus size={20} />
                 </div>
-                <p className="text-[13px] font-medium text-[#1d1d1f] mb-1">Drag files here</p>
-                <p className="text-[11px] text-[#86868b]">or click to browse from your computer</p>
+                <p className="text-[13px] font-medium text-white/90 mb-1">Drag files here</p>
+                <p className="text-[11px] text-white/60">or click to browse from your computer</p>
               </div>
 
             </div>
