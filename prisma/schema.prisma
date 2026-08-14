@@ -1,0 +1,133 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Student {
+  id                 String  @id @default(uuid())
+  rollNumber         String  @unique
+  registrationNumber String
+  name               String
+  department         String
+  batch              String
+
+  performances       StudentTopicPerformance[]
+  sessions           PracticeSession[]
+  tutorProfile       TutorProfile?
+  bookings           Booking[]
+}
+
+model Course {
+  id                String  @id @default(uuid())
+  code              String  @unique // e.g. "CSE320"
+  title             String
+  syllabusText      String
+  pastQuestionsText String
+
+  chapters          Chapter[]
+  topics            Topic[] // Denormalized for quick lookup
+}
+
+model Chapter {
+  id         String  @id @default(uuid())
+  courseId   String
+  name       String
+  orderIndex Int
+
+  course     Course  @relation(fields: [courseId], references: [id])
+  topics     Topic[]
+}
+
+model Topic {
+  id            String  @id @default(uuid())
+  chapterId     String
+  courseId      String
+  name          String
+  examFrequency Int     @default(0)
+
+  chapter       Chapter @relation(fields: [chapterId], references: [id])
+  course        Course  @relation(fields: [courseId], references: [id])
+  subtopics     Subtopic[]
+  performances  StudentTopicPerformance[]
+  sessions      PracticeSession[]
+}
+
+model Subtopic {
+  id              String  @id @default(uuid())
+  topicId         String
+  name            String
+  importance      String  // "high", "medium", "low"
+  appearanceCount Int     @default(0)
+  explanationText String?
+
+  topic           Topic   @relation(fields: [topicId], references: [id])
+}
+
+model StudentTopicPerformance {
+  id              String   @id @default(uuid())
+  studentId       String
+  topicId         String
+  masteryPercent  Int      @default(0) // 0-100
+  lastPracticedAt DateTime @default(now())
+
+  student         Student  @relation(fields: [studentId], references: [id])
+  topic           Topic    @relation(fields: [topicId], references: [id])
+
+  @@unique([studentId, topicId])
+}
+
+model PracticeSession {
+  id            String   @id @default(uuid())
+  studentId     String
+  topicId       String
+  questionsJson String   // JSON string
+  answersJson   String   // JSON string
+  resultJson    String   // JSON string
+  createdAt     DateTime @default(now())
+
+  student       Student  @relation(fields: [studentId], references: [id])
+  topic         Topic    @relation(fields: [topicId], references: [id])
+}
+
+model TutorProfile {
+  id                String   @id @default(uuid())
+  studentId         String   @unique
+  bio               String
+  topicsTags        String   // JSON array of strings
+  availabilitySlots String   // JSON array of slots
+  ratingAverage     Float    @default(0)
+  ratingCount       Int      @default(0)
+
+  student           Student  @relation(fields: [studentId], references: [id])
+  bookings          Booking[]
+}
+
+model Booking {
+  id        String   @id @default(uuid())
+  tutorId   String
+  studentId String
+  topic     String
+  timeslot  String
+  status    String   // "pending", "confirmed", "completed"
+
+  tutor     TutorProfile @relation(fields: [tutorId], references: [id])
+  student   Student      @relation(fields: [studentId], references: [id])
+  reviews   Review[]
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  bookingId String
+  rating    Int      // 1-5
+  comment   String
+  createdAt DateTime @default(now())
+
+  booking   Booking  @relation(fields: [bookingId], references: [id])
+}
