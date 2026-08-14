@@ -14,7 +14,7 @@ export function Desktop() {
     <div 
       className="relative w-full h-full overflow-hidden bg-cover bg-center"
       style={{
-        backgroundImage: 'url("https://images.unsplash.com/photo-1579546929518-9e396f3cc809?auto=format&fit=crop&w=2560&q=80")'
+        backgroundImage: 'url("https://images.unsplash.com/photo-1786415886005-bc08f359b7b8?auto=format&fit=crop&w=2560&q=80")'
       }}
     >
       <AnimatePresence>
